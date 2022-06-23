@@ -715,6 +715,66 @@ mysql> select product_id, product_name, company_name from products join supplier
 -- 19 --
 -- fetch Orders and the Shipper that was used
 
+mysql> select order_id, date(order_date) order_date, company_name from orders o, shippers s 
+where o.ship_via=s.shipper_id and  order_id < 10300 order by order_id;
++----------+------------------+------------------+
+| order_id | order_date       | company_name     |
++----------+------------------+------------------+
+|    10248 | 1996-07-04       | Federal Shipping |
+|    10249 | 1996-07-05       | Speedy Express   |
+|    10250 | 1996-07-08       | United Package   |
+|    10251 | 1996-07-08       | Speedy Express   |
+|    10252 | 1996-07-09       | United Package   |
+|    10253 | 1996-07-10       | United Package   |
+|    10254 | 1996-07-11       | United Package   |
+|    10255 | 1996-07-12       | Federal Shipping |
+|    10256 | 1996-07-15       | United Package   |
+|    10257 | 1996-07-16       | Federal Shipping |
+|    10258 | 1996-07-17       | Speedy Express   |
+|    10259 | 1996-07-18       | Federal Shipping |
+|    10260 | 1996-07-19       | Speedy Express   |
+|    10261 | 1996-07-19       | United Package   |
+|    10262 | 1996-07-22       | Federal Shipping |
+|    10263 | 1996-07-23       | Federal Shipping |
+|    10264 | 1996-07-24       | Federal Shipping |
+|    10265 | 1996-07-25       | Speedy Express   |
+|    10266 | 1996-07-26       | Federal Shipping |
+|    10267 | 1996-07-29       | Speedy Express   |
+|    10268 | 1996-07-30       | Federal Shipping |
+|    10269 | 1996-07-31       | Speedy Express   |
+|    10270 | 1996-08-01       | Speedy Express   |
+|    10271 | 1996-08-01       | United Package   |
+|    10272 | 1996-08-02       | United Package   |
+|    10273 | 1996-08-05       | Federal Shipping |
+|    10274 | 1996-08-06       | Speedy Express   |
+|    10275 | 1996-08-07       | Speedy Express   |
+|    10276 | 1996-08-08       | Federal Shipping |
+|    10277 | 1996-08-09       | Federal Shipping |
+|    10278 | 1996-08-12       | United Package   |
+|    10279 | 1996-08-13       | United Package   |
+|    10280 | 1996-08-14       | Speedy Express   |
+|    10281 | 1996-08-14       | Speedy Express   |
+|    10282 | 1996-08-15       | Speedy Express   |
+|    10283 | 1996-08-16       | Federal Shipping |
+|    10284 | 1996-08-19       | Speedy Express   |
+|    10285 | 1996-08-20       | United Package   |
+|    10286 | 1996-08-21       | Federal Shipping |
+|    10287 | 1996-08-22       | Federal Shipping |
+|    10288 | 1996-08-23       | Speedy Express   |
+|    10289 | 1996-08-26       | Federal Shipping |
+|    10290 | 1996-08-27       | Speedy Express   |
+|    10291 | 1996-08-27       | United Package   |
+|    10292 | 1996-08-28       | United Package   |
+|    10293 | 1996-08-29       | Federal Shipping |
+|    10294 | 1996-08-30       | United Package   |
+|    10295 | 1996-09-02       | United Package   |
+|    10296 | 1996-09-03       | Speedy Express   |
+|    10297 | 1996-09-04       | United Package   |
+|    10298 | 1996-09-05       | United Package   |
+|    10299 | 1996-09-06       | United Package   |
++----------+------------------+------------------+
+52 rows in set (0.078 sec)
+
 mysql> select order_id, date(order_date) order_date, company_name from orders o join shippers s on o.ship_via=s.shipper_id where order_id < 10300 order by order_id;
 +----------+------------------+------------------+
 | order_id | order_date       | company_name     |
